@@ -46,6 +46,108 @@ function BizCard({ icon, title, desc }: { icon: string; title: string; desc: str
   );
 }
 
+// ── Contact modal ──────────────────────────────────────────────────────────
+function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [form, setForm] = useState({ name: '', email: '', business: '', plan: '', message: '' });
+
+  function set(field: string, value: string) {
+    setForm(f => ({ ...f, [field]: value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      setStatus(res.ok ? 'sent' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  function handleClose() {
+    onClose();
+    setTimeout(() => { setStatus('idle'); setForm({ name: '', email: '', business: '', plan: '', message: '' }); }, 300);
+  }
+
+  if (!open) return null;
+
+  return (
+    <div className="modal-backdrop" onClick={handleClose}>
+      <div className="modal-box" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={handleClose} aria-label="Close">✕</button>
+
+        {status === 'sent' ? (
+          <div className="modal-sent">
+            <div className="modal-sent-label">Message sent</div>
+            <h3 className="modal-sent-heading">You'll hear back<br /><em>within 24 hours.</em></h3>
+            <p className="modal-sent-sub">
+              In the meantime, feel free to email directly at{' '}
+              <a href="mailto:langstonw430@gmail.com" className="modal-email-link">
+                langstonw430@gmail.com
+              </a>
+            </p>
+            <button className="btn btn-filled" onClick={handleClose}><span>Close</span></button>
+          </div>
+        ) : (
+          <>
+            <div className="modal-label">Let's talk</div>
+            <h3 className="modal-heading">Tell me about<br /><em>your business.</em></h3>
+            <p className="modal-sub">Free 20-minute call — no pressure, no sales pitch.</p>
+
+            <form onSubmit={handleSubmit} className="modal-form">
+              <div className="modal-row">
+                <div className="modal-field">
+                  <label>Your Name</label>
+                  <input type="text" required placeholder="Jane Smith"
+                    value={form.name} onChange={e => set('name', e.target.value)} />
+                </div>
+                <div className="modal-field">
+                  <label>Email</label>
+                  <input type="email" required placeholder="jane@example.com"
+                    value={form.email} onChange={e => set('email', e.target.value)} />
+                </div>
+              </div>
+              <div className="modal-row">
+                <div className="modal-field">
+                  <label>Business Name <span className="modal-optional">(optional)</span></label>
+                  <input type="text" placeholder="Smith Landscaping LLC"
+                    value={form.business} onChange={e => set('business', e.target.value)} />
+                </div>
+                <div className="modal-field">
+                  <label>Interested in</label>
+                  <select value={form.plan} onChange={e => set('plan', e.target.value)}>
+                    <option value="">— Select a plan —</option>
+                    <option value="Managed Plan ($399 + $30/mo)">Managed Plan — $399 + $30/mo</option>
+                    <option value="Handoff Plan ($599 one-time)">Handoff Plan — $599 one-time</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div className="modal-field">
+                <label>Tell me about your business <span className="modal-optional">(optional)</span></label>
+                <textarea rows={3} placeholder="What services you offer, who your customers are, what you're looking for..."
+                  value={form.message} onChange={e => set('message', e.target.value)} />
+              </div>
+              {status === 'error' && (
+                <p className="modal-error">Something went wrong — email me directly at <a href="mailto:langstonw430@gmail.com" className="modal-email-link">langstonw430@gmail.com</a></p>
+              )}
+              <button type="submit" className="btn btn-filled modal-submit" disabled={status === 'sending'}>
+                <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ── GreenEdge preview (your real project) ─────────────────────────────────
 function GreenEdgePreview() {
   return (
@@ -112,9 +214,10 @@ function GreenEdgePreview() {
 // ── Main component ─────────────────────────────────────────────────────────
 export default function FreelanceServices() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   function openContact() {
-    window.location.href = 'mailto:langstonw430@gmail.com?subject=Website%20Inquiry';
+    setModalOpen(true);
     setMenuOpen(false);
   }
 
@@ -138,6 +241,8 @@ export default function FreelanceServices() {
 
   return (
     <div className="fs-root">
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* ── NAV ────────────────────────────────────────────────────────── */}
       <nav className="fs-nav">
@@ -449,9 +554,9 @@ export default function FreelanceServices() {
             <span>View Full Portfolio</span>
           </a>
         </div>
-        <a href="mailto:langstonw430@gmail.com" className="cta-email">
+        <button onClick={openContact} className="cta-email">
           langstonw430@gmail.com
-        </a>
+        </button>
       </section>
 
       {/* ── FOOTER ─────────────────────────────────────────────────────── */}
