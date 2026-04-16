@@ -49,6 +49,7 @@ function BizCard({ icon, title, desc }: { icon: string; title: string; desc: str
 // ── Contact modal ──────────────────────────────────────────────────────────
 function ContactModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
   const [form, setForm] = useState({ name: '', email: '', business: '', plan: '', message: '' });
 
   function set(field: string, value: string) {
@@ -63,16 +64,24 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
+        signal: AbortSignal.timeout(8000),
       });
-      setStatus(res.ok ? 'sent' : 'error');
-    } catch {
+      if (res.ok) {
+        setStatus('sent');
+      } else {
+        const data = await res.json().catch(() => ({})) as { error?: string };
+        setErrorMsg(data.error ?? `Server error ${res.status}`);
+        setStatus('error');
+      }
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : 'Request failed');
       setStatus('error');
     }
   }
 
   function handleClose() {
     onClose();
-    setTimeout(() => { setStatus('idle'); setForm({ name: '', email: '', business: '', plan: '', message: '' }); }, 300);
+    setTimeout(() => { setStatus('idle'); setErrorMsg(''); setForm({ name: '', email: '', business: '', plan: '', message: '' }); }, 300);
   }
 
   if (!open) return null;
@@ -135,7 +144,10 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   value={form.message} onChange={e => set('message', e.target.value)} />
               </div>
               {status === 'error' && (
-                <p className="modal-error">Something went wrong — email me directly at <a href="mailto:langstonw430@gmail.com" className="modal-email-link">langstonw430@gmail.com</a></p>
+                <p className="modal-error">
+                  {errorMsg && <><strong>Error:</strong> {errorMsg}<br /></>}
+                  Email me directly at <a href="mailto:langstonw430@gmail.com" className="modal-email-link">langstonw430@gmail.com</a>
+                </p>
               )}
               <button type="submit" className="btn btn-filled modal-submit" disabled={status === 'sending'}>
                 <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>

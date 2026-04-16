@@ -1,13 +1,14 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req: Request): Promise<Response> {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  let body: {
+  const { name, email, business, plan, message } = req.body as {
     name?: string;
     email?: string;
     business?: string;
@@ -15,25 +16,14 @@ export default async function handler(req: Request): Promise<Response> {
     message?: string;
   };
 
-  try {
-    body = await req.json() as typeof body;
-  } catch {
-    return new Response('Invalid JSON', { status: 400 });
-  }
-
-  const { name, email, business, plan, message } = body;
-
   if (!name || !email) {
-    return new Response(JSON.stringify({ error: 'Name and email are required.' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return res.status(400).json({ error: 'Name and email are required.' });
   }
 
   const to = process.env.CONTACT_EMAIL_TO ?? 'langstonw430@gmail.com';
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Langston Woods Site <automation@langstonwoods.com>',
       to,
       replyTo: email,
@@ -72,15 +62,15 @@ export default async function handler(req: Request): Promise<Response> {
       `,
     });
 
-    return new Response(JSON.stringify({ ok: true }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({ error: error.message });
+    }
+
+    return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Resend error:', err);
-    return new Response(JSON.stringify({ error: 'Failed to send email.' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('Unexpected error:', message);
+    return res.status(500).json({ error: message });
   }
 }
