@@ -510,6 +510,28 @@
 }
 
 /* ── WHO THIS IS FOR ── */
+.services-heading {
+    margin-bottom: 16px;
+}
+
+.services-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+}
+
+.services-footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.services-footer-text {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
 .biz-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -537,10 +559,6 @@
 
 .biz-card:hover::before { height: 100%; }
 
-.biz-icon {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
 
 .biz-card h3 {
     font-family: 'Playfair Display', serif;
@@ -769,10 +787,139 @@
     color: var(--rust);
 }
 
+/* ── PORTFOLIO ── */
+.portfolio-heading {
+    margin-bottom: 48px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.portfolio-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 40px 36px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color 0.2s;
+}
+
+.portfolio-card:hover {
+    border-color: var(--rust);
+}
+
+.portfolio-card-img {
+    width: calc(100% + 72px);
+    margin: -40px -36px 0;
+    height: 220px;
+    overflow: hidden;
+    background: #1e1c1a;
+    margin-bottom: 24px;
+}
+
+.portfolio-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    /* placeholder tint until real screenshots are added */
+    opacity: 0.85;
+    transition: opacity 0.3s, transform 0.4s;
+}
+
+.portfolio-card:hover .portfolio-card-img img {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* shown when img src doesn't resolve yet */
+.portfolio-card-img img:not([src]),
+.portfolio-card-img img[src=""] {
+    background: repeating-linear-gradient(
+        -45deg,
+        #252320 0px,
+        #252320 10px,
+        #1a1816 10px,
+        #1a1816 20px
+    );
+}
+
+.portfolio-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.portfolio-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.badge-real {
+    background: var(--rust);
+    color: #fff;
+}
+
+.badge-mock {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+}
+
+.portfolio-type {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.portfolio-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+}
+
+.portfolio-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+}
+
+.portfolio-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+.portfolio-ghost {
+    position: absolute;
+    bottom: -20px;
+    right: 16px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--ink);
+    opacity: 0.03;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
 /* ── PRICING ── */
 .pricing-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2px;
 }
 
@@ -1358,6 +1505,8 @@
     }
 
     .work-meta { text-align: left; }
+
+    .portfolio-grid { grid-template-columns: 1fr; }
 
     .pricing-grid { grid-template-columns: 1fr; }
 

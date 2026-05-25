@@ -35,11 +35,10 @@ function R({ children, className = '' }: { children: React.ReactNode; className?
 }
 
 // ── Business type card ─────────────────────────────────────────────────────
-function BizCard({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+function BizCard({ title, desc }: { title: string; desc: string }) {
   const ref = useReveal();
   return (
     <div ref={ref as React.RefObject<HTMLDivElement>} className="biz-card reveal">
-      <div className="biz-icon">{icon}</div>
       <h3>{title}</h3>
       <p>{desc}</p>
     </div>
@@ -132,6 +131,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                   <label>Interested in</label>
                   <select value={form.plan} onChange={e => set('plan', e.target.value)}>
                     <option value="">— Select a plan —</option>
+                    <option value="Simple Website ($400)">Simple Website — $400 one-time</option>
                     <option value="Business Website ($1,000)">Business Website — $1,000 one-time</option>
                     <option value="Business Website + Care Plan ($1,000 + $75/mo)">Business Website + Care Plan — $1,000 + $75/mo</option>
                     <option value="Not sure yet">Not sure yet</option>
@@ -159,6 +159,37 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
     </div>
   );
 }
+
+// ── Portfolio data ─────────────────────────────────────────────────────────
+const PORTFOLIO = [
+  {
+    name: "Maria's Hair Emporium",
+    type: 'Hair Salon',
+    badge: 'Real Client' as const,
+    desc: 'A warm, polished site for a local hair salon — service menu, gallery, and an aesthetic that turns visitors into bookings.',
+    url: 'https://mariashairemporium.com',
+    img: '/screenshots/marias-hair-emporium-hero.png',
+    ghost: 'M',
+  },
+  {
+    name: 'Mock HVAC',
+    type: 'HVAC & Contracting',
+    badge: 'Mock Project' as const,
+    desc: 'A lead-generation site for an HVAC company — emergency callouts, service areas, and a prominent contact form built to convert.',
+    url: 'https://mock-hvac.vercel.app/',
+    img: '/screenshots/mock-hvac-hero.png',
+    ghost: 'H',
+  },
+  {
+    name: 'Mock Bakery',
+    type: 'Food & Bakery',
+    badge: 'Mock Project' as const,
+    desc: 'A welcoming, appetite-driven site for a local bakery — daily specials, ordering info, and branding that feels as good as it tastes.',
+    url: 'https://mock-bakery.langstonwoods.com/',
+    img: '/screenshots/mock-bakery-hero.png',
+    ghost: 'B',
+  },
+];
 
 // ── Main component ─────────────────────────────────────────────────────────
 export default function FreelanceServices() {
@@ -200,6 +231,7 @@ export default function FreelanceServices() {
         </a>
         <ul className="fs-nav-links">
           <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#process">Process</a></li>
           <li>
@@ -219,8 +251,9 @@ export default function FreelanceServices() {
 
       {/* mobile drawer */}
       <div className={`mobile-menu ${menuOpen ? 'mobile-menu-open' : ''}`}>
-        <a href="#services"  onClick={() => setMenuOpen(false)}>Services</a>
-        <a href="#pricing"   onClick={() => setMenuOpen(false)}>Pricing</a>
+        <a href="#services"   onClick={() => setMenuOpen(false)}>Services</a>
+        <a href="#portfolio"  onClick={() => setMenuOpen(false)}>Portfolio</a>
+        <a href="#pricing"    onClick={() => setMenuOpen(false)}>Pricing</a>
         <a href="#process"   onClick={() => setMenuOpen(false)}>Process</a>
         <button onClick={openContact}>Get a Website →</button>
       </div>
@@ -254,20 +287,37 @@ export default function FreelanceServices() {
       {/* ── WHO THIS IS FOR ────────────────────────────────────────────── */}
       <section id="services" className="fs-section fs-section-alt">
         <div className="section-label">Who it's for</div>
+        <R>
+          <h2 className="services-heading">
+            Any local business that wants<br /><em>to be found online.</em>
+          </h2>
+          <p className="services-sub">
+            If you run a local service business, I can build a site for you — no matter the industry.
+            Here are a few examples, but the list doesn't stop here.
+          </p>
+        </R>
         <div className="biz-grid">
-          <BizCard icon="🌿" title="Landscapers & Lawn Care"
+          <BizCard title="Landscapers & Lawn Care"
             desc="Show off your work, post seasonal packages, and make it effortless for homeowners to request a quote." />
-          <BizCard icon="🧹" title="Cleaning Services"
+          <BizCard title="Cleaning Services"
             desc="Build trust with a polished presence that makes booking a recurring clean feel simple and reliable." />
-          <BizCard icon="🔨" title="Contractors & Handymen"
+          <BizCard title="Contractors & Handymen"
             desc="Highlight past projects and trade skills — and give clients one clear way to reach you." />
-          <BizCard icon="🪟" title="Pressure Washing"
+          <BizCard title="Pressure Washing"
             desc="Before-and-after galleries that do the selling for you, paired with a fast contact form." />
-          <BizCard icon="🐾" title="Pet Grooming & Dog Walking"
+          <BizCard title="Pet Grooming & Dog Walking"
             desc="Approachable sites with easy scheduling and service menus that pet owners love." />
-          <BizCard icon="🚗" title="Auto Detailing"
+          <BizCard title="Auto Detailing"
             desc="Showcase your packages and pull in new customers actively searching for detailers nearby." />
         </div>
+        <R className="services-footer">
+          <p className="services-footer-text">
+            Don't see your industry?&nbsp;
+            <button className="pricing-footnote-link" onClick={openContact}>
+              Reach out anyway — if you have a business, I can build your site.
+            </button>
+          </p>
+        </R>
       </section>
 
       {/* ── PROBLEM ────────────────────────────────────────────────────── */}
@@ -343,10 +393,61 @@ export default function FreelanceServices() {
         </div>
       </section>
 
+      {/* ── PORTFOLIO ──────────────────────────────────────────────────── */}
+      <section id="portfolio" className="fs-section">
+        <div className="section-label">Portfolio</div>
+        <R>
+          <h2 className="portfolio-heading">
+            Real sites,<br /><em>real results.</em>
+          </h2>
+        </R>
+        <div className="portfolio-grid">
+          {PORTFOLIO.map(({ name, type, badge, desc, url, img, ghost }) => (
+            <div key={name} className="portfolio-card reveal">
+              <div className="portfolio-card-img">
+                <img src={img} alt={`${name} screenshot`} />
+              </div>
+              <div className="portfolio-card-top">
+                <span className={`portfolio-badge ${badge === 'Real Client' ? 'badge-real' : 'badge-mock'}`}>
+                  {badge}
+                </span>
+                <span className="portfolio-type">{type}</span>
+              </div>
+              <div className="portfolio-name">{name}</div>
+              <p className="portfolio-desc">{desc}</p>
+              <a href={url} target="_blank" rel="noopener noreferrer" className="btn btn-filled portfolio-btn">
+                <span>View Live Site →</span>
+              </a>
+              <div className="portfolio-ghost">{ghost}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── PRICING ────────────────────────────────────────────────────── */}
       <section id="pricing" className="fs-section fs-section-alt">
         <div className="section-label">Pricing</div>
         <div className="pricing-grid">
+
+          <div className="pricing-card reveal">
+            <div className="pricing-label">Simple</div>
+            <div className="pricing-name">Simple Website</div>
+            <div className="pricing-price-row">
+              <span className="pricing-price">$400</span>
+              <span className="pricing-price-sub">one-time</span>
+            </div>
+            <div className="pricing-price-then">&nbsp;</div>
+            <div className="pricing-price-note">Perfect for personal pages &amp; simple needs</div>
+            <ul className="pricing-features">
+              <li>1–2 page clean design</li>
+              <li>Mobile-responsive layout</li>
+              <li>Contact form or click-to-call</li>
+              <li>Domain &amp; hosting setup walkthrough</li>
+              <li>30-day support window after launch</li>
+            </ul>
+            <button className="btn" onClick={openContact}><span>Get Started</span></button>
+            <div className="pricing-ghost">S</div>
+          </div>
 
           <div className="pricing-card featured reveal">
             <div className="pricing-label featured-tag">Standard</div>
