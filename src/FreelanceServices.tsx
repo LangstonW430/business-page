@@ -261,15 +261,15 @@ export default function FreelanceServices() {
       {/* ── HERO ───────────────────────────────────────────────────────── */}
       <header className="fs-hero">
         <div className="hero-left">
-          <p className="hero-eyebrow">Web Design · Local Businesses</p>
+          <p className="hero-eyebrow">Web Design for Local Service Businesses</p>
           <h1 className="hero-heading">
             More customers,<br />
             <em>better website.</em>
           </h1>
           <p className="hero-desc">
             I build clean, professional websites for local service businesses —
-            landscapers, cleaners, contractors, and more. You focus on the work.
-            I'll handle everything online.
+            landscapers, cleaners, contractors, pressure washers, auto detailers,
+            pet groomers, and more. You focus on the work. I'll handle everything online.
           </p>
           <div className="hero-actions">
             <button className="btn btn-filled" onClick={openContact}>
@@ -292,7 +292,7 @@ export default function FreelanceServices() {
             Any local business that wants<br /><em>to be found online.</em>
           </h2>
           <p className="services-sub">
-            If you run a local service business, I can build a site for you — no matter the industry.
+            If you run a local service business, I offer custom web design no matter the industry.
             Here are a few examples, but the list doesn't stop here.
           </p>
         </R>

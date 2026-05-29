@@ -1,10 +1,18 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import FreelanceServices from './FreelanceServices.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!
+const app = (
   <StrictMode>
     <FreelanceServices />
-  </StrictMode>,
+  </StrictMode>
 )
+
+// Dev: root is empty → createRoot. Prod: root has prerendered HTML → hydrateRoot.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app)
+} else {
+  createRoot(container).render(app)
+}
