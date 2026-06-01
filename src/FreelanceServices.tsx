@@ -170,6 +170,7 @@ const PORTFOLIO = [
     url: 'https://mariashairemporium.com',
     img: '/screenshots/marias-hair-emporium-hero.png',
     ghost: 'M',
+    domain: 'mariashairemporium.com',
   },
   {
     name: 'Mock HVAC',
@@ -179,6 +180,7 @@ const PORTFOLIO = [
     url: 'https://mock-hvac.vercel.app/',
     img: '/screenshots/mock-hvac-hero.png',
     ghost: 'H',
+    domain: 'mock-hvac.vercel.app',
   },
   {
     name: 'Mock Bakery',
@@ -188,6 +190,7 @@ const PORTFOLIO = [
     url: 'https://mock-bakery.langstonwoods.com/',
     img: '/screenshots/mock-bakery-hero.png',
     ghost: 'B',
+    domain: 'mock-bakery.langstonwoods.com',
   },
 ];
 
@@ -280,6 +283,35 @@ export default function FreelanceServices() {
             </a>
           </div>
           <p className="hero-note">Free 20-min consultation &nbsp;·&nbsp; No commitment</p>
+        </div>
+
+        <div className="hero-right" aria-hidden="true">
+          <div className="hero-composition">
+            <div className="hc-glow" />
+            <div className="hc-dots" />
+            <div className="deco-letter">W</div>
+
+            <div className="stat-card sc-features">
+              <p className="sc-eyebrow">Every site includes</p>
+              {['Mobile-responsive design', 'On-page SEO included', 'Contact form built in', 'Full source code yours'].map(item => (
+                <div key={item} className="sc-row">
+                  <span className="sc-arrow">→</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="stat-card sc-number">
+              <p className="sc-num-label">avg. days to launch</p>
+              <div className="sc-num-big">14</div>
+            </div>
+
+            <div className="stat-card sc-status">
+              <span className="sc-dot" />
+              <span className="sc-status-text">Accepting new projects</span>
+            </div>
+          </div>
+
         </div>
 
       </header>
@@ -402,10 +434,27 @@ export default function FreelanceServices() {
           </h2>
         </R>
         <div className="portfolio-grid">
-          {PORTFOLIO.map(({ name, type, badge, desc, url, img, ghost }) => (
+          {PORTFOLIO.map(({ name, type, badge, desc, url, img, ghost, domain }) => (
             <div key={name} className="portfolio-card reveal">
               <div className="portfolio-card-img">
-                <img src={img} alt={`${name} screenshot`} />
+                <div className="port-chrome">
+                  <div className="port-chrome-bar">
+                    <span className="port-dot port-dot-red" />
+                    <span className="port-dot port-dot-yel" />
+                    <span className="port-dot port-dot-grn" />
+                    <span className="port-chrome-url">{domain}</span>
+                  </div>
+                  <div className="port-chrome-viewport">
+                    <img
+                      src={img}
+                      alt={`${name} website screenshot`}
+                      width={1440}
+                      height={900}
+                      loading="lazy"
+                      className="port-chrome-img"
+                    />
+                  </div>
+                </div>
               </div>
               <div className="portfolio-card-top">
                 <span className={`portfolio-badge ${badge === 'Real Client' ? 'badge-real' : 'badge-mock'}`}>
