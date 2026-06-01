@@ -291,6 +291,17 @@ export default function FreelanceServices() {
             <div className="hc-dots" />
             <div className="deco-letter">W</div>
 
+            <div className="hc-phone">
+              <div className="hc-phone-inner">
+                <div className="phone-frame">
+                  <div className="phone-island" />
+                  <div className="phone-screen">
+                    <img src="/screenshots/mock-bakery-mobile.webp" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="stat-card sc-features">
               <p className="sc-eyebrow">Every site includes</p>
               {['Mobile-responsive design', 'On-page SEO included', 'Contact form built in', 'Full source code yours'].map(item => (

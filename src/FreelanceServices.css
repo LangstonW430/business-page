@@ -310,6 +310,58 @@
     -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 75%);
 }
 
+/* ── PHONE MOCKUP ── */
+.hc-phone {
+  position: absolute;
+  top: 42%;
+  left: 58%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  width: 208px;
+  z-index: 1;
+}
+
+.hc-phone-inner {
+  animation: float 7s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+.phone-frame {
+  background: #14100c;
+  border: 1.5px solid rgba(245, 240, 232, 0.10);
+  border-radius: 38px;
+  padding: 14px 10px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 24px 64px rgba(0, 0, 0, 0.65),
+    0 0 48px rgba(196, 80, 10, 0.15);
+}
+
+.phone-island {
+  width: 88px;
+  height: 20px;
+  background: #0a0806;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+}
+
+.phone-screen {
+  overflow: hidden;
+  border-radius: 26px;
+  aspect-ratio: 9 / 19.5;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: phoneScroll 26s ease-in-out alternate infinite;
+}
+
+@keyframes phoneScroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-58%); }
+}
+
 .stat-card {
     position: absolute;
     background: rgba(18, 14, 10, 0.82);
@@ -425,8 +477,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .stat-card { animation: none; }
-    .sc-dot    { animation: none; }
+    .stat-card      { animation: none; }
+    .sc-dot         { animation: none; }
+    .hc-phone-inner { animation: none; }
+    .hc-phone-inner img { animation: none; }
 }
 
 /* ── BROWSER MOCKUP ── */
@@ -1728,7 +1782,8 @@
 
     .hc-glow,
     .hc-dots,
-    .deco-letter { display: none; }
+    .deco-letter,
+    .hc-phone { display: none; }
 
     .stat-card {
         position: static;
