@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: 'Langston Woods Site <automation@langstonwoods.com>',
       to,
       replyTo: email,
-      subject: `New website inquiry — ${name}`,
+      subject: `New website inquiry from ${name}`,
       html: `
         <div style="font-family: 'DM Sans', system-ui, sans-serif; max-width: 560px; margin: 0 auto; background: #f5f0e8; padding: 48px 40px; color: #1a1410;">
           <p style="font-family: monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c4500a; margin: 0 0 24px;">New Inquiry · langstonwoods.com</p>

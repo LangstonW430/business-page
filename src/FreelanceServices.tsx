@@ -106,7 +106,7 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
           <>
             <div className="modal-label">Let's talk</div>
             <h3 className="modal-heading">Tell me about<br /><em>your business.</em></h3>
-            <p className="modal-sub">Free 20-minute call — no pressure, no sales pitch.</p>
+            <p className="modal-sub">Free 20-minute call, no pressure, no sales pitch.</p>
 
             <form onSubmit={handleSubmit} className="modal-form">
               <div className="modal-row">
@@ -130,10 +130,10 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
                 <div className="modal-field">
                   <label>Interested in</label>
                   <select value={form.plan} onChange={e => set('plan', e.target.value)}>
-                    <option value="">— Select a plan —</option>
-                    <option value="Simple Website ($400)">Simple Website — $400 one-time</option>
-                    <option value="Business Website ($1,000)">Business Website — $1,000 one-time</option>
-                    <option value="Business Website + Care Plan ($1,000 + $75/mo)">Business Website + Care Plan — $1,000 + $75/mo</option>
+                    <option value="">Select a plan</option>
+                    <option value="Simple Website ($400)">Simple Website ($400 one-time)</option>
+                    <option value="Business Website ($1,000)">Business Website ($1,000 one-time)</option>
+                    <option value="Business Website + Care Plan ($1,000 + $75/mo)">Business Website + Care Plan ($1,000 + $75/mo)</option>
                     <option value="Not sure yet">Not sure yet</option>
                   </select>
                 </div>
@@ -166,7 +166,7 @@ const PORTFOLIO = [
     name: "Maria's Hair Emporium",
     type: 'Hair Salon',
     badge: 'Real Client' as const,
-    desc: 'A warm, polished site for a local hair salon — service menu, gallery, and an aesthetic that turns visitors into bookings.',
+    desc: 'A warm, polished site for a local hair salon with a service menu, gallery, and an aesthetic that turns visitors into bookings.',
     url: 'https://mariashairemporium.com',
     img: '/screenshots/marias-hair-emporium-hero.png',
     ghost: 'M',
@@ -176,7 +176,7 @@ const PORTFOLIO = [
     name: 'Mock HVAC',
     type: 'HVAC & Contracting',
     badge: 'Mock Project' as const,
-    desc: 'A lead-generation site for an HVAC company — emergency callouts, service areas, and a prominent contact form built to convert.',
+    desc: 'A lead-generation site for an HVAC company with emergency callouts, service areas, and a prominent contact form built to convert.',
     url: 'https://mock-hvac.vercel.app/',
     img: '/screenshots/mock-hvac-hero.png',
     ghost: 'H',
@@ -186,7 +186,7 @@ const PORTFOLIO = [
     name: 'Mock Bakery',
     type: 'Food & Bakery',
     badge: 'Mock Project' as const,
-    desc: 'A welcoming, appetite-driven site for a local bakery — daily specials, ordering info, and branding that feels as good as it tastes.',
+    desc: 'A welcoming, appetite-driven site for a local bakery with daily specials, ordering info, and branding that feels as good as it tastes.',
     url: 'https://mock-bakery.langstonwoods.com/',
     img: '/screenshots/mock-bakery-hero.png',
     ghost: 'B',
@@ -270,7 +270,7 @@ export default function FreelanceServices() {
             <em>better website.</em>
           </h1>
           <p className="hero-desc">
-            I build clean, professional websites for local service businesses —
+            I build clean, professional websites for local service businesses:
             landscapers, cleaners, contractors, pressure washers, auto detailers,
             pet groomers, and more. You focus on the work. I'll handle everything online.
           </p>
@@ -345,7 +345,7 @@ export default function FreelanceServices() {
           <BizCard title="Cleaning Services"
             desc="Build trust with a polished presence that makes booking a recurring clean feel simple and reliable." />
           <BizCard title="Contractors & Handymen"
-            desc="Highlight past projects and trade skills — and give clients one clear way to reach you." />
+            desc="Highlight past projects and trade skills and give clients one clear way to reach you." />
           <BizCard title="Pressure Washing"
             desc="Before-and-after galleries that do the selling for you, paired with a fast contact form." />
           <BizCard title="Pet Grooming & Dog Walking"
@@ -357,7 +357,7 @@ export default function FreelanceServices() {
           <p className="services-footer-text">
             Don't see your industry?&nbsp;
             <button className="pricing-footnote-link" onClick={openContact}>
-              Reach out anyway — if you have a business, I can build your site.
+              Reach out anyway. If you have a business, I can build your site.
             </button>
           </p>
         </R>
@@ -370,7 +370,7 @@ export default function FreelanceServices() {
             <div className="section-label">The problem</div>
             <h2>Most local businesses are<br /><em>invisible online.</em></h2>
             <p>
-              Your work speaks for itself — but if customers can't find you,
+              Your work speaks for itself, but if customers can't find you,
               or land on a site that breaks on their phone, they're going
               straight to your competitor.
             </p>
@@ -378,7 +378,7 @@ export default function FreelanceServices() {
           <div className="problem-list">
             {[
               { n: '01', t: 'No website at all',
-                d: 'Over a third of local service businesses have zero web presence — invisible to anyone searching Google.' },
+                d: 'Over a third of local service businesses have zero web presence, invisible to anyone searching Google.' },
               { n: '02', t: 'Outdated or broken site',
                 d: 'A site that looks old, loads slow, or breaks on mobile sends customers running before they even read a word.' },
               { n: '03', t: 'No clear way to contact you',
@@ -404,7 +404,7 @@ export default function FreelanceServices() {
           <div className="service-list">
             {[
               { n: '01', t: 'Fast, mobile-first design',
-                d: 'Every site loads instantly and looks sharp on any device — especially the phones your customers are using.' },
+                d: 'Every site loads instantly and looks sharp on any device, especially the phones your customers are using.' },
               { n: '02', t: 'Professional, trust-building aesthetic',
                 d: 'Clean, modern designs that make your business look established and credible from the first second.' },
               { n: '03', t: 'Easy contact options everywhere',
@@ -425,7 +425,7 @@ export default function FreelanceServices() {
             <div className="section-label">What I build</div>
             <h2>A website that works as<br /><em>hard as you do.</em></h2>
             <p>
-              I handle everything — design, development, and launch.
+              I handle everything: design, development, and launch.
               You stay focused on your business while I build the digital
               storefront that brings new customers to your door.
             </p>
@@ -544,7 +544,7 @@ export default function FreelanceServices() {
               <li>Updates &amp; edits whenever you need</li>
               <li>Security &amp; uptime monitoring</li>
               <li>Priority support response</li>
-              <li>Cancel anytime — no contracts</li>
+              <li>Cancel anytime, no contracts</li>
             </ul>
             <button className="btn" onClick={openContact}><span>Add to My Website</span></button>
             <div className="pricing-ghost">C</div>
@@ -569,11 +569,11 @@ export default function FreelanceServices() {
             { n: 'Step 01', time: '20 minutes',      t: 'Discuss',
               d: 'A free, no-pressure call to understand your business, your customers, and exactly what you\'re looking for.' },
             { n: 'Step 02', time: '24–48 hours',     t: 'Design',
-              d: 'I create a custom mockup tailored to your brand — layout, colors, copy, and structure. You review and give feedback.' },
+              d: 'I create a custom mockup tailored to your brand: layout, colors, copy, and structure. You review and give feedback.' },
             { n: 'Step 03', time: '3–5 days',        t: 'Build',
-              d: 'I code and test the full site. No tech speak — just clear updates at every stage.' },
+              d: 'I code and test the full site. No tech speak, just clear updates at every stage.' },
             { n: 'Step 04', time: '10–14 days',      t: 'Revisions',
-              d: 'Two dedicated rounds of revisions based on your feedback. You review, I refine — until it feels exactly right.' },
+              d: 'Two dedicated rounds of revisions based on your feedback. You review, I refine until it feels exactly right.' },
             { n: 'Step 05', time: 'Day 14–21',       t: 'Launch',
               d: 'Your site goes live on your domain. I walk you through the basics and you start getting found.' },
           ].map(({ n, time, t, d }) => (
