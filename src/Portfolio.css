@@ -1,0 +1,114 @@
+/* ── PORTFOLIO PAGE ── */
+/* Inherits tokens from FreelanceServices.css:
+   --bg #0e0b09  --bg-alt #131009  --bg-card #1e1712
+   --cream #f5f0e8  --rust #c4500a  --muted rgba(245,240,232,.45)  --border */
+
+.portfolio-hero {
+    padding: 160px 80px 72px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-hero .section-label {
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.portfolio-hero .section-label::after { display: none; }
+
+.portfolio-page-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.03;
+    margin: 0 0 24px;
+    color: var(--cream);
+}
+
+.portfolio-page-heading em {
+    font-style: italic;
+    color: var(--rust);
+}
+
+.portfolio-page-sub {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 44px;
+}
+
+/* ── FILTERS ── */
+.portfolio-filters {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.filter-btn:hover {
+    color: var(--cream);
+    border-color: var(--border-rust);
+}
+
+.filter-active {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--cream);
+}
+
+.filter-active:hover {
+    color: var(--cream);
+    border-color: var(--rust);
+}
+
+/* ── GRID SHELL ── */
+.portfolio-page-grid {
+    padding-top: 40px;
+}
+
+.portfolio-empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 80px 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Portfolio card colors that the shared sheet leaves undefined */
+.portfolio-page-grid .portfolio-card { background: var(--bg-card); }
+.portfolio-page-grid .portfolio-name { color: var(--cream); }
+.portfolio-page-grid .portfolio-ghost {
+    color: var(--cream);
+    opacity: 0.03;
+}
+
+/* ── ACTIVE NAV STATE ── */
+.nav-active {
+    color: var(--rust) !important;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .portfolio-hero { padding: 120px 24px 48px; }
+    .portfolio-page-grid { padding: 0 24px 80px; }
+}

@@ -1,0 +1,34 @@
+{
+  "projects": [
+    {
+      "name": "Maria's Hair Emporium",
+      "type": "Hair Salon",
+      "badge": "Real Client",
+      "desc": "A warm, polished site for a local hair salon with a service menu, gallery, and an aesthetic that turns visitors into bookings.",
+      "url": "https://mariashairemporium.com",
+      "img": "/screenshots/marias-hair-emporium-hero.png",
+      "ghost": "M",
+      "domain": "mariashairemporium.com"
+    },
+    {
+      "name": "Mock HVAC",
+      "type": "HVAC & Contracting",
+      "badge": "Mock Project",
+      "desc": "A lead-generation site for an HVAC company with emergency callouts, service areas, and a prominent contact form built to convert.",
+      "url": "https://mock-hvac.vercel.app/",
+      "img": "/screenshots/mock-hvac-hero.png",
+      "ghost": "H",
+      "domain": "mock-hvac.vercel.app"
+    },
+    {
+      "name": "Mock Bakery",
+      "type": "Food & Bakery",
+      "badge": "Mock Project",
+      "desc": "A welcoming, appetite-driven site for a local bakery with daily specials, ordering info, and branding that feels as good as it tastes.",
+      "url": "https://mock-bakery.langstonwoods.com/",
+      "img": "/screenshots/mock-bakery-hero.png",
+      "ghost": "B",
+      "domain": "mock-bakery.langstonwoods.com"
+    }
+  ]
+}

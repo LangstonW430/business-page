@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: LangstonW430/business-page
+  branch: main
+  base_url: https://langstonwoods.com
+  auth_endpoint: /api/oauth
+
+media_folder: public/screenshots
+public_folder: /screenshots
+
+collections:
+  - name: projects
+    label: Portfolio Projects
+    files:
+      - name: projects
+        label: All Projects
+        file: src/data/projects.json
+        fields:
+          - name: projects
+            label: Projects
+            widget: list
+            summary: "{{fields.name}} — {{fields.type}}"
+            fields:
+              - { label: Project Name,   name: name,   widget: string }
+              - { label: Industry/Type,  name: type,   widget: string }
+              - label: Badge
+                name: badge
+                widget: select
+                options: [Real Client, Mock Project]
+              - { label: Description,    name: desc,   widget: text }
+              - { label: Live URL,       name: url,    widget: string }
+              - { label: Screenshot,     name: img,    widget: image }
+              - { label: Ghost Letter,   name: ghost,  widget: string, hint: "Single letter shown as background decoration (e.g. M)" }
+              - { label: Domain Display, name: domain, widget: string, hint: "Shown in the browser chrome bar (e.g. mariashairemporium.com)" }

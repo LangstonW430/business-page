@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import projectsData from './data/projects.json';
 import './FreelanceServices.css';
 
 // ── scroll reveal ──────────────────────────────────────────────────────────
@@ -160,39 +162,12 @@ function ContactModal({ open, onClose }: { open: boolean; onClose: () => void })
   );
 }
 
-// ── Portfolio data ─────────────────────────────────────────────────────────
-const PORTFOLIO = [
-  {
-    name: "Maria's Hair Emporium",
-    type: 'Hair Salon',
-    badge: 'Real Client' as const,
-    desc: 'A warm, polished site for a local hair salon with a service menu, gallery, and an aesthetic that turns visitors into bookings.',
-    url: 'https://mariashairemporium.com',
-    img: '/screenshots/marias-hair-emporium-hero.png',
-    ghost: 'M',
-    domain: 'mariashairemporium.com',
-  },
-  {
-    name: 'Mock HVAC',
-    type: 'HVAC & Contracting',
-    badge: 'Mock Project' as const,
-    desc: 'A lead-generation site for an HVAC company with emergency callouts, service areas, and a prominent contact form built to convert.',
-    url: 'https://mock-hvac.vercel.app/',
-    img: '/screenshots/mock-hvac-hero.png',
-    ghost: 'H',
-    domain: 'mock-hvac.vercel.app',
-  },
-  {
-    name: 'Mock Bakery',
-    type: 'Food & Bakery',
-    badge: 'Mock Project' as const,
-    desc: 'A welcoming, appetite-driven site for a local bakery with daily specials, ordering info, and branding that feels as good as it tastes.',
-    url: 'https://mock-bakery.langstonwoods.com/',
-    img: '/screenshots/mock-bakery-hero.png',
-    ghost: 'B',
-    domain: 'mock-bakery.langstonwoods.com',
-  },
-];
+// ── Portfolio data (sourced from CMS-managed JSON) ─────────────────────────
+type Project = {
+  name: string; type: string; badge: 'Real Client' | 'Mock Project';
+  desc: string; url: string; img: string; ghost: string; domain: string;
+};
+const PORTFOLIO: Project[] = projectsData.projects as Project[];
 
 // ── Main component ─────────────────────────────────────────────────────────
 export default function FreelanceServices() {
@@ -234,7 +209,7 @@ export default function FreelanceServices() {
         </a>
         <ul className="fs-nav-links">
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><Link to="/portfolio">Portfolio</Link></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#process">Process</a></li>
           <li>
@@ -255,7 +230,7 @@ export default function FreelanceServices() {
       {/* mobile drawer */}
       <div className={`mobile-menu ${menuOpen ? 'mobile-menu-open' : ''}`}>
         <a href="#services"   onClick={() => setMenuOpen(false)}>Services</a>
-        <a href="#portfolio"  onClick={() => setMenuOpen(false)}>Portfolio</a>
+        <Link to="/portfolio" onClick={() => setMenuOpen(false)}>Portfolio</Link>
         <a href="#pricing"    onClick={() => setMenuOpen(false)}>Pricing</a>
         <a href="#process"   onClick={() => setMenuOpen(false)}>Process</a>
         <button onClick={openContact}>Get a Website →</button>
@@ -481,6 +456,11 @@ export default function FreelanceServices() {
               <div className="portfolio-ghost">{ghost}</div>
             </div>
           ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <Link to="/portfolio" className="btn btn-filled">
+            <span>View All Projects →</span>
+          </Link>
         </div>
       </section>
 
