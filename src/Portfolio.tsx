@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import projectsData from './data/projects.json';
+import content from './data/content.json';
 import './FreelanceServices.css';
 import './Portfolio.css';
+
+const C = content;
 
 type Project = {
   name: string;
@@ -108,16 +111,16 @@ export default function Portfolio() {
       {/* ── NAV ─────────────────────────────────────────────────────────── */}
       <nav className="fs-nav">
         <Link to="/" className="fs-nav-logo">
-          L<span>.</span>Woods
+          {C.nav.logoLead}<span>.</span>{C.nav.logoTail}
         </Link>
         <ul className="fs-nav-links">
-          <li><Link to="/#services">Services</Link></li>
-          <li><Link to="/portfolio" className="nav-active">Portfolio</Link></li>
-          <li><Link to="/#pricing">Pricing</Link></li>
-          <li><Link to="/#process">Process</Link></li>
+          <li><Link to="/#services">{C.nav.linkServices}</Link></li>
+          <li><Link to="/portfolio" className="nav-active">{C.nav.linkPortfolio}</Link></li>
+          <li><Link to="/#pricing">{C.nav.linkPricing}</Link></li>
+          <li><Link to="/#process">{C.nav.linkProcess}</Link></li>
           <li>
             <Link to="/" className="btn btn-filled">
-              <span>Get a Website</span>
+              <span>{C.nav.ctaLabel}</span>
             </Link>
           </li>
         </ul>
@@ -132,22 +135,21 @@ export default function Portfolio() {
 
       {/* mobile drawer */}
       <div className={`mobile-menu ${menuOpen ? 'mobile-menu-open' : ''}`}>
-        <Link to="/#services"  onClick={() => setMenuOpen(false)}>Services</Link>
-        <Link to="/portfolio"  onClick={() => setMenuOpen(false)}>Portfolio</Link>
-        <Link to="/#pricing"   onClick={() => setMenuOpen(false)}>Pricing</Link>
-        <Link to="/#process"   onClick={() => setMenuOpen(false)}>Process</Link>
-        <Link to="/"           onClick={() => setMenuOpen(false)}>Get a Website →</Link>
+        <Link to="/#services"  onClick={() => setMenuOpen(false)}>{C.nav.linkServices}</Link>
+        <Link to="/portfolio"  onClick={() => setMenuOpen(false)}>{C.nav.linkPortfolio}</Link>
+        <Link to="/#pricing"   onClick={() => setMenuOpen(false)}>{C.nav.linkPricing}</Link>
+        <Link to="/#process"   onClick={() => setMenuOpen(false)}>{C.nav.linkProcess}</Link>
+        <Link to="/"           onClick={() => setMenuOpen(false)}>{C.nav.ctaLabel} →</Link>
       </div>
 
       {/* ── HERO ────────────────────────────────────────────────────────── */}
       <header className="portfolio-hero">
-        <div className="section-label">Portfolio</div>
+        <div className="section-label">{C.portfolioPage.label}</div>
         <h1 className="portfolio-page-heading">
-          Real sites,<br /><em>real results.</em>
+          {C.portfolioPage.headingLead}<br /><em>{C.portfolioPage.headingEm}</em>
         </h1>
         <p className="portfolio-page-sub">
-          Every project is built custom, no templates and no shortcuts.
-          Here's a look at what I've made for real clients and showcase builds.
+          {C.portfolioPage.sub}
         </p>
 
         <div className="portfolio-filters">
@@ -171,33 +173,33 @@ export default function Portfolio() {
           ))}
         </div>
         {filtered.length === 0 && (
-          <p className="portfolio-empty">No projects in this category yet.</p>
+          <p className="portfolio-empty">{C.portfolioPage.emptyText}</p>
         )}
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <section className="fs-cta">
-        <div className="section-label center">Ready to grow</div>
+        <div className="section-label center">{C.portfolioPage.ctaLabel}</div>
         <h2 className="cta-heading reveal">
-          Want a site like these?<br /><em>Let's build yours.</em>
+          {C.portfolioPage.ctaHeadingLead}<br /><em>{C.portfolioPage.ctaHeadingEm}</em>
         </h2>
         <p className="cta-sub reveal">
-          Free 20-minute consultation. No pressure, no commitment.
+          {C.portfolioPage.ctaSub}
         </p>
         <div className="cta-actions reveal">
           <Link to="/" className="btn btn-filled">
-            <span>Get a Free Consultation</span>
+            <span>{C.portfolioPage.ctaButtonLabel}</span>
           </Link>
         </div>
-        <a href="mailto:langstonw430@gmail.com" className="cta-email">
-          langstonw430@gmail.com
+        <a href={`mailto:${C.portfolioPage.ctaEmail}`} className="cta-email">
+          {C.portfolioPage.ctaEmail}
         </a>
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────────────────── */}
       <footer className="fs-footer">
-        <p>© {new Date().getFullYear()} Langston Woods</p>
-        <p>Web Design for Local Businesses</p>
+        <p>© {new Date().getFullYear()} {C.footer.businessName}</p>
+        <p>{C.footer.tagline}</p>
       </footer>
 
     </div>
