@@ -32,3 +32,218 @@ collections:
               - { label: Screenshot,     name: img,    widget: image }
               - { label: Ghost Letter,   name: ghost,  widget: string, hint: "Single letter shown as background decoration (e.g. M)" }
               - { label: Domain Display, name: domain, widget: string, hint: "Shown in the browser chrome bar (e.g. mariashairemporium.com)" }
+
+  - name: content
+    label: Site Content
+    files:
+      - name: content
+        label: All Page Copy & Images
+        file: src/data/content.json
+        fields:
+          # ── SEO / Social Sharing ────────────────────────────────────
+          - name: seo
+            label: "SEO & Social Sharing"
+            widget: object
+            hint: "Browser tab title, search-engine description, and the preview shown when the site is shared on social media."
+            fields:
+              - { label: Page Title, name: title, widget: string }
+              - { label: Meta Description, name: description, widget: text }
+              - { label: Site Name, name: siteName, widget: string }
+              - { label: Author, name: author, widget: string }
+              - { label: Theme Color, name: themeColor, widget: string, hint: "Browser UI tint, e.g. #0e0b09" }
+              - { label: Canonical URL, name: url, widget: string }
+              - { label: Social Share Image, name: ogImage, widget: image, hint: "1200×630 image shown when shared on social media" }
+
+          # ── Navigation ──────────────────────────────────────────────
+          - name: nav
+            label: Navigation Bar
+            widget: object
+            fields:
+              - { label: Logo (first letter), name: logoLead, widget: string }
+              - { label: Logo (rest), name: logoTail, widget: string }
+              - { label: "Link: Services", name: linkServices, widget: string }
+              - { label: "Link: Portfolio", name: linkPortfolio, widget: string }
+              - { label: "Link: Pricing", name: linkPricing, widget: string }
+              - { label: "Link: Process", name: linkProcess, widget: string }
+              - { label: Button Label, name: ctaLabel, widget: string }
+
+          # ── Hero ────────────────────────────────────────────────────
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Description, name: desc, widget: text }
+              - { label: Primary Button, name: primaryLabel, widget: string }
+              - { label: Secondary Button, name: secondaryLabel, widget: string }
+              - { label: Note under buttons, name: note, widget: string }
+              - { label: Phone Mockup Image, name: phoneImage, widget: image }
+              - { label: Decorative Letter, name: decoLetter, widget: string }
+              - { label: "Card: 'includes' label", name: includesLabel, widget: string }
+              - { label: "Card: includes list", name: includes, widget: list, field: { label: Item, name: item, widget: string } }
+              - { label: "Card: days label", name: daysLabel, widget: string }
+              - { label: "Card: days number", name: daysNumber, widget: string }
+              - { label: "Card: status text", name: statusText, widget: string }
+
+          # ── Who it's for ────────────────────────────────────────────
+          - name: services
+            label: "Section: Who It's For"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Subtext, name: sub, widget: text }
+              - label: Industry Cards
+                name: cards
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: desc, widget: text }
+              - { label: Footer Text, name: footerText, widget: string }
+              - { label: Footer Link Text, name: footerLinkText, widget: string }
+
+          # ── Problem ─────────────────────────────────────────────────
+          - name: problem
+            label: "Section: The Problem"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                summary: "{{fields.n}} — {{fields.t}}"
+                fields:
+                  - { label: Number, name: n, widget: string }
+                  - { label: Title, name: t, widget: string }
+                  - { label: Description, name: d, widget: text }
+
+          # ── Solution ────────────────────────────────────────────────
+          - name: solution
+            label: "Section: What I Build"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - { label: Button Label, name: ctaLabel, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                summary: "{{fields.n}} — {{fields.t}}"
+                fields:
+                  - { label: Number, name: n, widget: string }
+                  - { label: Title, name: t, widget: string }
+                  - { label: Description, name: d, widget: text }
+
+          # ── Portfolio Section (home) ────────────────────────────────
+          - name: portfolioSection
+            label: "Section: Portfolio (Home)"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: "View All Button", name: viewAllLabel, widget: string }
+
+          # ── Pricing ─────────────────────────────────────────────────
+          - name: pricing
+            label: "Section: Pricing"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Pricing Cards
+                name: cards
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Tag/Label, name: label, widget: string }
+                  - { label: Plan Name, name: name, widget: string }
+                  - { label: Price, name: price, widget: string }
+                  - { label: Price Sub (e.g. one-time), name: priceSub, widget: string }
+                  - { label: Note, name: note, widget: string }
+                  - { label: Features, name: features, widget: list, field: { label: Feature, name: feature, widget: string } }
+                  - { label: Button Label, name: ctaLabel, widget: string }
+                  - { label: Ghost Letter, name: ghost, widget: string }
+                  - { label: Featured (highlighted)?, name: featured, widget: boolean, default: false }
+              - { label: Footnote Text, name: footnoteText, widget: string }
+              - { label: Footnote Link Text, name: footnoteLinkText, widget: string }
+
+          # ── Process ─────────────────────────────────────────────────
+          - name: process
+            label: "Section: How It Works"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                summary: "{{fields.n}} — {{fields.t}}"
+                fields:
+                  - { label: Step Number, name: n, widget: string }
+                  - { label: Timeframe, name: time, widget: string }
+                  - { label: Title, name: t, widget: string }
+                  - { label: Description, name: d, widget: text }
+
+          # ── CTA ─────────────────────────────────────────────────────
+          - name: cta
+            label: "Section: Closing CTA"
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Subtext, name: sub, widget: text }
+              - { label: Primary Button, name: primaryLabel, widget: string }
+              - { label: Secondary Button, name: secondaryLabel, widget: string }
+              - { label: Secondary Button URL, name: secondaryUrl, widget: string }
+              - { label: Email, name: email, widget: string }
+
+          # ── Footer ──────────────────────────────────────────────────
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { label: Business Name, name: businessName, widget: string }
+              - { label: Tagline, name: tagline, widget: string }
+
+          # ── Contact Modal ───────────────────────────────────────────
+          - name: contact
+            label: Contact Form Modal
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Subtext, name: sub, widget: string }
+              - { label: Plan Dropdown Options, name: planOptions, widget: list, field: { label: Option, name: option, widget: string } }
+              - { label: Submit Button, name: submitLabel, widget: string }
+              - { label: Email, name: email, widget: string }
+              - { label: "Sent: label", name: sentLabel, widget: string }
+              - { label: "Sent: heading line 1", name: sentHeadingLead, widget: string }
+              - { label: "Sent: heading emphasized line 2", name: sentHeadingEm, widget: string }
+              - { label: "Sent: subtext", name: sentSub, widget: string }
+
+          # ── Portfolio Page ──────────────────────────────────────────
+          - name: portfolioPage
+            label: Portfolio Page
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Heading (line 1), name: headingLead, widget: string }
+              - { label: Heading (emphasized line 2), name: headingEm, widget: string }
+              - { label: Subtext, name: sub, widget: text }
+              - { label: Empty State Text, name: emptyText, widget: string }
+              - { label: "CTA: label", name: ctaLabel, widget: string }
+              - { label: "CTA: heading line 1", name: ctaHeadingLead, widget: string }
+              - { label: "CTA: heading emphasized line 2", name: ctaHeadingEm, widget: string }
+              - { label: "CTA: subtext", name: ctaSub, widget: text }
+              - { label: "CTA: button label", name: ctaButtonLabel, widget: string }
+              - { label: "CTA: email", name: ctaEmail, widget: string }

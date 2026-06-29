@@ -1,0 +1,277 @@
+{
+  "seo": {
+    "title": "Web Design for Local Businesses | Langston Woods",
+    "description": "Professional websites for local service businesses: landscapers, cleaners, contractors, and more. Get more customers with a site built for results.",
+    "siteName": "Langston Woods",
+    "author": "Langston Woods",
+    "themeColor": "#0e0b09",
+    "url": "https://services.langstonwoods.com/",
+    "ogImage": "https://services.langstonwoods.com/og-image.png"
+  },
+  "nav": {
+    "logoLead": "L",
+    "logoTail": "Woods",
+    "linkServices": "Services",
+    "linkPortfolio": "Portfolio",
+    "linkPricing": "Pricing",
+    "linkProcess": "Process",
+    "ctaLabel": "Get a Website"
+  },
+  "hero": {
+    "eyebrow": "Web Design for Local Service Businesses",
+    "headingLead": "More customers,",
+    "headingEm": "better website.",
+    "desc": "I build clean, professional websites for local service businesses: landscapers, cleaners, contractors, pressure washers, auto detailers, pet groomers, and more. You focus on the work. I'll handle everything online.",
+    "primaryLabel": "Get a Website",
+    "secondaryLabel": "See Pricing",
+    "note": "Free 20-min consultation · No commitment",
+    "phoneImage": "/screenshots/mock-bakery-mobile.webp",
+    "decoLetter": "W",
+    "includesLabel": "Every site includes",
+    "includes": [
+      "Mobile-responsive design",
+      "On-page SEO included",
+      "Contact form built in",
+      "Full source code yours"
+    ],
+    "daysLabel": "avg. days to launch",
+    "daysNumber": "14",
+    "statusText": "Accepting new projects"
+  },
+  "services": {
+    "label": "Who it's for",
+    "headingLead": "Any local business that wants",
+    "headingEm": "to be found online.",
+    "sub": "If you run a local service business, I offer custom web design no matter the industry. Here are a few examples, but the list doesn't stop here.",
+    "cards": [
+      {
+        "title": "Landscapers & Lawn Care",
+        "desc": "Show off your work, post seasonal packages, and make it effortless for homeowners to request a quote."
+      },
+      {
+        "title": "Cleaning Services",
+        "desc": "Build trust with a polished presence that makes booking a recurring clean feel simple and reliable."
+      },
+      {
+        "title": "Contractors & Handymen",
+        "desc": "Highlight past projects and trade skills and give clients one clear way to reach you."
+      },
+      {
+        "title": "Pressure Washing",
+        "desc": "Before-and-after galleries that do the selling for you, paired with a fast contact form."
+      },
+      {
+        "title": "Pet Grooming & Dog Walking",
+        "desc": "Approachable sites with easy scheduling and service menus that pet owners love."
+      },
+      {
+        "title": "Auto Detailing",
+        "desc": "Showcase your packages and pull in new customers actively searching for detailers nearby."
+      }
+    ],
+    "footerText": "Don't see your industry? ",
+    "footerLinkText": "Reach out anyway. If you have a business, I can build your site."
+  },
+  "problem": {
+    "label": "The problem",
+    "headingLead": "Most local businesses are",
+    "headingEm": "invisible online.",
+    "intro": "Your work speaks for itself, but if customers can't find you, or land on a site that breaks on their phone, they're going straight to your competitor.",
+    "items": [
+      {
+        "n": "01",
+        "t": "No website at all",
+        "d": "Over a third of local service businesses have zero web presence, invisible to anyone searching Google."
+      },
+      {
+        "n": "02",
+        "t": "Outdated or broken site",
+        "d": "A site that looks old, loads slow, or breaks on mobile sends customers running before they even read a word."
+      },
+      {
+        "n": "03",
+        "t": "No clear way to contact you",
+        "d": "If a potential client has to hunt for your phone number, they won't bother. You lose the job."
+      },
+      {
+        "n": "04",
+        "t": "Nothing to build trust",
+        "d": "Without photos, reviews, or a professional look, new customers have no reason to choose you over the next result."
+      }
+    ]
+  },
+  "solution": {
+    "label": "What I build",
+    "headingLead": "A website that works as",
+    "headingEm": "hard as you do.",
+    "intro": "I handle everything: design, development, and launch. You stay focused on your business while I build the digital storefront that brings new customers to your door.",
+    "ctaLabel": "Start a Project",
+    "items": [
+      {
+        "n": "01",
+        "t": "Fast, mobile-first design",
+        "d": "Every site loads instantly and looks sharp on any device, especially the phones your customers are using."
+      },
+      {
+        "n": "02",
+        "t": "Professional, trust-building aesthetic",
+        "d": "Clean, modern designs that make your business look established and credible from the first second."
+      },
+      {
+        "n": "03",
+        "t": "Easy contact options everywhere",
+        "d": "Click-to-call, contact forms, and Google Maps integration. All the friction removed for your customers."
+      },
+      {
+        "n": "04",
+        "t": "Found on Google",
+        "d": "Basic on-page SEO built in from day one so local customers searching for your services can actually find you."
+      }
+    ]
+  },
+  "portfolioSection": {
+    "label": "Portfolio",
+    "headingLead": "Real sites,",
+    "headingEm": "real results.",
+    "viewAllLabel": "View All Projects →"
+  },
+  "pricing": {
+    "label": "Pricing",
+    "cards": [
+      {
+        "label": "Simple",
+        "name": "Simple Website",
+        "price": "$400",
+        "priceSub": "one-time",
+        "note": "Perfect for personal pages & simple needs",
+        "features": [
+          "1–2 page clean design",
+          "Mobile-responsive layout",
+          "Contact form or click-to-call",
+          "Domain & hosting setup walkthrough",
+          "30-day support window after launch"
+        ],
+        "ctaLabel": "Get Started",
+        "ghost": "S",
+        "featured": false
+      },
+      {
+        "label": "Standard",
+        "name": "Business Website",
+        "price": "$1,000",
+        "priceSub": "one-time",
+        "note": "Everything you need to get online",
+        "features": [
+          "Custom designed & built website",
+          "Mobile-responsive on all devices",
+          "Full source code & assets delivered",
+          "Domain & hosting setup walkthrough",
+          "Basic on-page SEO built in",
+          "30-day support window after launch"
+        ],
+        "ctaLabel": "Get Started",
+        "ghost": "B",
+        "featured": true
+      },
+      {
+        "label": "Optional Add-on",
+        "name": "Monthly Care Plan",
+        "price": "$75",
+        "priceSub": "/ month",
+        "note": "I keep your site running & up to date",
+        "features": [
+          "Hosting fully managed by me",
+          "Updates & edits whenever you need",
+          "Security & uptime monitoring",
+          "Priority support response",
+          "Cancel anytime, no contracts"
+        ],
+        "ctaLabel": "Add to My Website",
+        "ghost": "C",
+        "featured": false
+      }
+    ],
+    "footnoteText": "Questions about what's included? ",
+    "footnoteLinkText": "Let's talk it through."
+  },
+  "process": {
+    "label": "How it works",
+    "steps": [
+      {
+        "n": "Step 01",
+        "time": "20 minutes",
+        "t": "Discuss",
+        "d": "A free, no-pressure call to understand your business, your customers, and exactly what you're looking for."
+      },
+      {
+        "n": "Step 02",
+        "time": "24–48 hours",
+        "t": "Design",
+        "d": "I create a custom mockup tailored to your brand: layout, colors, copy, and structure. You review and give feedback."
+      },
+      {
+        "n": "Step 03",
+        "time": "3–5 days",
+        "t": "Build",
+        "d": "I code and test the full site. No tech speak, just clear updates at every stage."
+      },
+      {
+        "n": "Step 04",
+        "time": "10–14 days",
+        "t": "Revisions",
+        "d": "Two dedicated rounds of revisions based on your feedback. You review, I refine until it feels exactly right."
+      },
+      {
+        "n": "Step 05",
+        "time": "Day 14–21",
+        "t": "Launch",
+        "d": "Your site goes live on your domain. I walk you through the basics and you start getting found."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Ready to grow",
+    "headingLead": "Let's build",
+    "headingEm": "something great.",
+    "sub": "A professional website is the single best investment you can make for your local business. Let's start with a free conversation.",
+    "primaryLabel": "Get a Free Consultation",
+    "secondaryLabel": "View Full Portfolio",
+    "secondaryUrl": "https://langstonwoods.com",
+    "email": "langstonw430@gmail.com"
+  },
+  "footer": {
+    "businessName": "Langston Woods",
+    "tagline": "Web Design for Local Businesses"
+  },
+  "contact": {
+    "label": "Let's talk",
+    "headingLead": "Tell me about",
+    "headingEm": "your business.",
+    "sub": "Free 20-minute call, no pressure, no sales pitch.",
+    "planOptions": [
+      "Simple Website ($400 one-time)",
+      "Business Website ($1,000 one-time)",
+      "Business Website + Care Plan ($1,000 + $75/mo)",
+      "Not sure yet"
+    ],
+    "submitLabel": "Send Message",
+    "email": "langstonw430@gmail.com",
+    "sentLabel": "Message sent",
+    "sentHeadingLead": "You'll hear back",
+    "sentHeadingEm": "within 24 hours.",
+    "sentSub": "In the meantime, feel free to email directly at"
+  },
+  "portfolioPage": {
+    "label": "Portfolio",
+    "headingLead": "Real sites,",
+    "headingEm": "real results.",
+    "sub": "Every project is built custom, no templates and no shortcuts. Here's a look at what I've made for real clients and showcase builds.",
+    "emptyText": "No projects in this category yet.",
+    "ctaLabel": "Ready to grow",
+    "ctaHeadingLead": "Want a site like these?",
+    "ctaHeadingEm": "Let's build yours.",
+    "ctaSub": "Free 20-minute consultation. No pressure, no commitment.",
+    "ctaButtonLabel": "Get a Free Consultation",
+    "ctaEmail": "langstonw430@gmail.com"
+  }
+}
