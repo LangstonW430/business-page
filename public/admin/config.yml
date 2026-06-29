@@ -2,7 +2,7 @@ backend:
   name: github
   repo: LangstonW430/business-page
   branch: main
-  base_url: https://langstonwoods.com
+  base_url: https://services.langstonwoods.com
   auth_endpoint: /api/oauth
 
 media_folder: public/screenshots
