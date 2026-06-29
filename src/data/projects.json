@@ -29,6 +29,16 @@
       "img": "/screenshots/mock-bakery-hero.png",
       "ghost": "B",
       "domain": "mock-bakery.langstonwoods.com"
+    },
+    {
+      "name": "KJ freelancing page",
+      "type": "Graphic Design",
+      "badge": "Real Client",
+      "desc": "Graphic design freelancing page, built to clients percise requirements.",
+      "url": "https://kjdesignllc.com/",
+      "img": "/screenshots/screencapture-kjdesignllc-2026-06-29-14_21_55.png",
+      "ghost": "K",
+      "domain": "kjdesignllc.com"
     }
   ]
 }
