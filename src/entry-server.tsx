@@ -1,7 +1,6 @@
 import { renderToString } from 'react-dom/server';
 import { StrictMode } from 'react';
-import { StaticRouter } from 'react-router-dom/server';
-import { Routes, Route } from 'react-router-dom';
+import { StaticRouter, Routes, Route } from 'react-router-dom';
 import FreelanceServices from './FreelanceServices.tsx';
 import Portfolio from './Portfolio.tsx';
 
